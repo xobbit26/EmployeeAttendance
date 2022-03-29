@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+
+  employee_recorder_db:
+    container_name: employee_recorder_db
+    image: postgres
+    restart: always
+    networks:
+      - employee_recorder_network
+    volumes:
+      - employee_recorder_db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: employee_recorder_db
+    ports:
+      - "5432:5432"
+
+
+  #optional
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    depends_on:
+      - employee_recorder_db
+    networks:
+      - employee_recorder_network
+    volumes:
+      - pg_admin_volume:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+
+
+volumes:
+  employee_recorder_db_volume:
+  pg_admin_volume:
+
+networks:
+  employee_recorder_network:
