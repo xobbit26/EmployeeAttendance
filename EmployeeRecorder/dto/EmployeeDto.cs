@@ -8,5 +8,6 @@
         public int Age { get; set; }
         public DateTime HiringDate { get; set; }
         public string Position { get; set; }
+        public bool IsActive { get; set; }
     }
 }
