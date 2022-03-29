@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//dependency injection
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 var app = builder.Build();
