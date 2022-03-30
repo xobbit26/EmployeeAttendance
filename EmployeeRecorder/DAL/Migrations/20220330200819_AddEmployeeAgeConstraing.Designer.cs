@@ -3,6 +3,7 @@ using System;
 using EmployeeRecorder.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EmployeeRecorder.Migrations
 {
     [DbContext(typeof(EmployeeRecorderDbContext))]
-    partial class EmployeeRecorderDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220330200819_AddEmployeeAgeConstraing")]
+    partial class AddEmployeeAgeConstraing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

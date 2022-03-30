@@ -10,6 +10,18 @@ namespace EmployeeRecorder.DAL
         public EmployeeRecorderDbContext(DbContextOptions<EmployeeRecorderDbContext> options)
         : base(options)
         {
+            Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Employee>()
+            //    .Property(e => e.Age)
+            //    .HasDefaultValue(18);
+
+            modelBuilder.Entity<Employee>()
+                .HasCheckConstraint("age", "age > 0 and age < 120", c => c.HasName("ck_employee_age"));
+            //.HasData(new Employee { Id = 1, Name = "Tom", Age = 23 });
         }
 
         //public EmployeeRecorderDbContext(DbContextOptionsBuilder optionsBuilder)

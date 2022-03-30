@@ -1,13 +1,12 @@
-﻿namespace EmployeeRecorder.dto
+﻿namespace EmployeeRecorder.dto;
+
+public class EmployeeDto
 {
-    public class EmployeeDto
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
-        public DateTime HiringDate { get; set; }
-        public string Position { get; set; }
-        public bool IsActive { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; } = null!;
+    public string Surname { get; set; } = null!;
+    public int Age { get; set; }
+    public DateTime HiringDate { get; set; }
+    public string Position { get; set; } = null!;
+    public bool IsActive { get; set; }
 }
