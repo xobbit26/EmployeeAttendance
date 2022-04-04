@@ -1,42 +1,18 @@
-﻿using EmployeeAttendance.entity;
+﻿using EmployeeAttendance.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeAttendance.DAL
+namespace EmployeeAttendance.Data;
+
+public class DataContext : DbContext
 {
-    public class DataContext : DbContext
+    public DbSet<Employee> Employees { get; set; } = null!;
+    public DbSet<Entities.EmployeeAttendance> EmployeeAttendance { get; set; } = null!;
+
+    public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        public DbSet<Employee> Employees { get; set; } = null!;
-
-        public DataContext(DbContextOptions<DataContext> options)
-        : base(options)
-        {
-            Database.EnsureCreated();
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //modelBuilder.Entity<Employee>()
-            //    .Property(e => e.Age)
-            //    .HasDefaultValue(18);
-
-            modelBuilder.Entity<Employee>()
-                .HasCheckConstraint("age", "age > 0 and age < 120", c => c.HasName("ck_employee_age"));
-            //.HasData(new Employee { Id = 1, Name = "Tom", Age = 23 });
-        }
-
-        //public EmployeeAttendanceDbContext(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    //Database.EnsureDeleted();
-        //    Database.EnsureCreated();
-
-        //    bool isConnected = Database.CanConnect();
-        //    Console.WriteLine($"is connected to db: {isConnected}");
-        //}
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=employee_attendance_db;Username=root;Password=root");
-        //    optionsBuilder.LogTo(Console.WriteLine);
-        //}
+        modelBuilder.Entity<Employee>()
+            .HasCheckConstraint("age", "age > 0 and age < 120", c => c.HasName("ck_employee_age"));
     }
 }

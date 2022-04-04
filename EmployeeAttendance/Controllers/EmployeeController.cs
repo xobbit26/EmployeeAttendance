@@ -1,5 +1,5 @@
-﻿using EmployeeAttendance.dto;
-using EmployeeAttendance.service;
+﻿using EmployeeAttendance.Dto;
+using EmployeeAttendance.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,14 +1,14 @@
-﻿using EmployeeAttendance.entity;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeeAttendance.Data.Entities
+namespace EmployeeAttendance.Data.Entities;
+
+
+[Table("employee_attendance")]
+public class EmployeeAttendance
 {
-    [Table("employee_attendance")]
-    public class EmployeeAttendance
-    {
-        public long Id { get; set; }
-        public DateTime EnterDateTime { get; set; }
-        public DateTime LeaveDateTime { get; set; }
-        public Employee Employee { get; set; } = null!;
-    }
+    public long Id { get; set; }
+    public DateTime EnterDateTime { get; set; }
+    public DateTime LeaveDateTime { get; set; }
+    public Employee Employee { get; set; } = null!;
 }
+

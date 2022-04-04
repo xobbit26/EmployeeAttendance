@@ -1,4 +1,4 @@
-﻿namespace EmployeeAttendance.dto;
+﻿namespace EmployeeAttendance.Dto;
 
 public class EmployeeDto
 {

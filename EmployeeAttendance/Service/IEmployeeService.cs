@@ -1,11 +1,10 @@
-﻿using EmployeeAttendance.dto;
+﻿using EmployeeAttendance.Dto;
 
-namespace EmployeeAttendance.service
+namespace EmployeeAttendance.Service;
+
+public interface IEmployeeService
 {
-    public interface IEmployeeService
-    {
-        IEnumerable<EmployeeDto> GetAllEmployees();
+    IEnumerable<EmployeeDto> GetAllEmployees();
 
-        void Create(EmployeeDto employee);
-    }
+    void Create(EmployeeDto employee);
 }

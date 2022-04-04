@@ -1,6 +1,6 @@
-using EmployeeAttendance.DAL;
-using EmployeeAttendance.service;
-using EmployeeAttendance.service.impl;
+using EmployeeAttendance.Data;
+using EmployeeAttendance.Service;
+using EmployeeAttendance.Service.Impl;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal;

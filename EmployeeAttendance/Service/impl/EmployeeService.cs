@@ -1,13 +1,12 @@
-﻿using EmployeeAttendance.dto;
+﻿using EmployeeAttendance.Dto;
 
-namespace EmployeeAttendance.service.impl
+namespace EmployeeAttendance.Service.Impl;
+
+public class EmployeeService : IEmployeeService
 {
-    public class EmployeeService : IEmployeeService
-    {
-        private List<EmployeeDto> _employees = new List<EmployeeDto>();
+    private List<EmployeeDto> _employees = new List<EmployeeDto>();
 
 
-        public IEnumerable<EmployeeDto> GetAllEmployees() => _employees;
-        public void Create(EmployeeDto employee) => _employees.Add(employee);
-    }
+    public IEnumerable<EmployeeDto> GetAllEmployees() => _employees;
+    public void Create(EmployeeDto employee) => _employees.Add(employee);
 }

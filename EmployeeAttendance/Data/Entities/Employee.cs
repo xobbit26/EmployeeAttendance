@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeeAttendance.entity;
+namespace EmployeeAttendance.Data.Entities;
 
 [Table("employee")]
 public class Employee
@@ -20,7 +20,7 @@ public class Employee
 
     public int Age { get; set; }
 
-    public DateTime HiringDate { get; set; }
+    public DateOnly HiringDate { get; set; }
 
     [MaxLength(100)]
     public string Position { get; set; } = null!;
