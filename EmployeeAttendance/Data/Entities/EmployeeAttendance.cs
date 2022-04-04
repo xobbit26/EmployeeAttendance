@@ -1,7 +1,7 @@
-﻿using EmployeeRecorder.entity;
+﻿using EmployeeAttendance.entity;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeeRecorder.Data.Entities
+namespace EmployeeAttendance.Data.Entities
 {
     [Table("employee_attendance")]
     public class EmployeeAttendance

@@ -1,4 +1,4 @@
-﻿namespace EmployeeRecorder.dto;
+﻿namespace EmployeeAttendance.dto;
 
 public class EmployeeDto
 {

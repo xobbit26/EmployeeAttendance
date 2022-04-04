@@ -1,6 +1,6 @@
-﻿using EmployeeRecorder.dto;
+﻿using EmployeeAttendance.dto;
 
-namespace EmployeeRecorder.service
+namespace EmployeeAttendance.service
 {
     public interface IEmployeeService
     {

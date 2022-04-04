@@ -1,6 +1,6 @@
-using EmployeeRecorder.DAL;
-using EmployeeRecorder.service;
-using EmployeeRecorder.service.impl;
+using EmployeeAttendance.DAL;
+using EmployeeAttendance.service;
+using EmployeeAttendance.service.impl;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal;

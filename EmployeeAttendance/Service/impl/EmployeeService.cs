@@ -1,6 +1,6 @@
-﻿using EmployeeRecorder.dto;
+﻿using EmployeeAttendance.dto;
 
-namespace EmployeeRecorder.service.impl
+namespace EmployeeAttendance.service.impl
 {
     public class EmployeeService : IEmployeeService
     {

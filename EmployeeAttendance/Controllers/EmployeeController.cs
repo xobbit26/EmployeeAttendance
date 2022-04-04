@@ -1,9 +1,9 @@
-﻿using EmployeeRecorder.dto;
-using EmployeeRecorder.service;
+﻿using EmployeeAttendance.dto;
+using EmployeeAttendance.service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EmployeeRecorder.Controllers
+namespace EmployeeAttendance.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,8 +1,8 @@
-﻿using EmployeeRecorder.Data.Entities;
+﻿using EmployeeAttendance.Data.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeeRecorder.entity;
+namespace EmployeeAttendance.entity;
 
 [Table("employee")]
 public class Employee

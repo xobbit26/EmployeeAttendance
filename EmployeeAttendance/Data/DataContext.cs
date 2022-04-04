@@ -1,7 +1,7 @@
-﻿using EmployeeRecorder.entity;
+﻿using EmployeeAttendance.entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeRecorder.DAL
+namespace EmployeeAttendance.DAL
 {
     public class DataContext : DbContext
     {
@@ -24,7 +24,7 @@ namespace EmployeeRecorder.DAL
             //.HasData(new Employee { Id = 1, Name = "Tom", Age = 23 });
         }
 
-        //public EmployeeRecorderDbContext(DbContextOptionsBuilder optionsBuilder)
+        //public EmployeeAttendanceDbContext(DbContextOptionsBuilder optionsBuilder)
         //{
         //    //Database.EnsureDeleted();
         //    Database.EnsureCreated();
@@ -35,7 +35,7 @@ namespace EmployeeRecorder.DAL
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
-        //    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=employee_recorder_db;Username=root;Password=root");
+        //    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=employee_attendance_db;Username=root;Password=root");
         //    optionsBuilder.LogTo(Console.WriteLine);
         //}
     }

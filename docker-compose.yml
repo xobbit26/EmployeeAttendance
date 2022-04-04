@@ -1,18 +1,18 @@
 version: '3.8'
 services:
 
-  employee_recorder_db:
-    container_name: employee_recorder_db
+  employee_attendance_db:
+    container_name: employee_attendance_db
     image: postgres
     restart: always
     networks:
-      - employee_recorder_network
+      - employee_attendance_network
     volumes:
-      - employee_recorder_db_volume:/var/lib/postgresql/data
+      - employee_attendance_db_volume:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: employee_recorder_db
+      POSTGRES_DB: employee_attendance_db
     ports:
       - "5432:5432"
 
@@ -23,9 +23,9 @@ services:
     image: dpage/pgadmin4
     restart: always
     depends_on:
-      - employee_recorder_db
+      - employee_attendance_db
     networks:
-      - employee_recorder_network
+      - employee_attendance_network
     volumes:
       - pg_admin_volume:/var/lib/pgadmin
     environment:
@@ -36,8 +36,8 @@ services:
 
 
 volumes:
-  employee_recorder_db_volume:
+  employee_attendance_db_volume:
   pg_admin_volume:
 
 networks:
-  employee_recorder_network:
+  employee_attendance_network:

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "EmployeeRecorder": {
+    "EmployeeAttendance": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       //"launchBrowser": true,
