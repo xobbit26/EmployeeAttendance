@@ -16,7 +16,7 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 //db configuration
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<EmployeeRecorderDbContext>(options => options
+builder.Services.AddDbContext<DataContext>(options => options
     .UseNpgsql(connection)
     .UseSnakeCaseNamingConvention());
 

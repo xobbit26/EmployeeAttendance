@@ -3,6 +3,7 @@ using System;
 using EmployeeRecorder.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,10 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EmployeeRecorder.Migrations
 {
-    [DbContext(typeof(EmployeeRecorderDbContext))]
-    partial class EmployeeRecorderDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DataContext))]
+    [Migration("20220330200555_AddMaxLengthToEmployeeProperties")]
+    partial class AddMaxLengthToEmployeeProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,8 +67,6 @@ namespace EmployeeRecorder.Migrations
                         .HasName("pk_employee");
 
                     b.ToTable("employee", (string)null);
-
-                    b.HasCheckConstraint("age", "age > 0 and age < 120", c => c.HasName("ck_employee_age"));
                 });
 #pragma warning restore 612, 618
         }

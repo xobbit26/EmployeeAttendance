@@ -3,7 +3,6 @@ using System;
 using EmployeeRecorder.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,11 +10,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EmployeeRecorder.Migrations
 {
-    [DbContext(typeof(EmployeeRecorderDbContext))]
-    [Migration("20220329191949_InitialCreate")]
-    partial class InitialCreate
+    [DbContext(typeof(DataContext))]
+    partial class EmployeeRecorderDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,12 +24,12 @@ namespace EmployeeRecorder.Migrations
 
             modelBuilder.Entity("EmployeeRecorder.entity.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<int>("Age")
                         .HasColumnType("integer")
@@ -41,25 +39,34 @@ namespace EmployeeRecorder.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("hiring_date");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_active");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
                         .HasColumnName("name");
 
                     b.Property<string>("Position")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("position");
 
                     b.Property<string>("Surname")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
                         .HasColumnName("surname");
 
                     b.HasKey("Id")
-                        .HasName("pk_employees");
+                        .HasName("pk_employee");
 
-                    b.ToTable("employees", (string)null);
+                    b.ToTable("employee", (string)null);
+
+                    b.HasCheckConstraint("age", "age > 0 and age < 120", c => c.HasName("ck_employee_age"));
                 });
 #pragma warning restore 612, 618
         }

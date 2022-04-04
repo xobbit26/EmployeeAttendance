@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EmployeeRecorder.Migrations
 {
-    [DbContext(typeof(EmployeeRecorderDbContext))]
+    [DbContext(typeof(DataContext))]
     [Migration("20220330200819_AddEmployeeAgeConstraing")]
     partial class AddEmployeeAgeConstraing
     {

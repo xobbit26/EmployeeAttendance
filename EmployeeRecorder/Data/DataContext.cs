@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeRecorder.DAL
 {
-    public class EmployeeRecorderDbContext : DbContext
+    public class DataContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; } = null!;
 
-        public EmployeeRecorderDbContext(DbContextOptions<EmployeeRecorderDbContext> options)
+        public DataContext(DbContextOptions<DataContext> options)
         : base(options)
         {
             Database.EnsureCreated();

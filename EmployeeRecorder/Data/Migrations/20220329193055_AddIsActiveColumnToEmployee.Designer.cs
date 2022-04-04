@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EmployeeRecorder.Migrations
 {
-    [DbContext(typeof(EmployeeRecorderDbContext))]
+    [DbContext(typeof(DataContext))]
     [Migration("20220329193055_AddIsActiveColumnToEmployee")]
     partial class AddIsActiveColumnToEmployee
     {
