@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EmployeeRecorder.Data.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmployeeRecorder.entity;
@@ -25,6 +26,8 @@ public class Employee
     public string Position { get; set; } = null!;
 
     public bool IsActive { get; set; }
+
+    public List<EmployeeAttendance>? EmployeeAttendances { get; set; } = new();
 
     //public string Country { get; set; } = null!;
 }
