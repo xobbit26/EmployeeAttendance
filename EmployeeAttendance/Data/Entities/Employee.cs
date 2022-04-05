@@ -20,6 +20,8 @@ public class Employee
 
     public int Age { get; set; }
 
+    public DateOnly Birthday { get; set; }
+
     public DateOnly HiringDate { get; set; }
 
     [MaxLength(100)]
