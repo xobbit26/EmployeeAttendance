@@ -17,13 +17,18 @@ namespace EmployeeAttendance.Controllers
         }
 
         [HttpGet("all-employees")]
-        public IEnumerable<EmployeeDto> GetAllEmployees() => 
-            _employeeService.GetAllEmployees();
+        public IEnumerable<EmployeeDto> GetAllEmployees()
+        {
+            return _employeeService.GetAllEmployees();
+        }
 
 
         [HttpPost]
-        public void Create(EmployeeDto employee) => 
+        public void Create(EmployeeDto employee)
+        {
             _employeeService.Create(employee);
+        }
+
     }
 
 }

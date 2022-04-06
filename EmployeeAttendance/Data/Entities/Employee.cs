@@ -31,5 +31,9 @@ public class Employee
 
     public List<EmployeeAttendance>? EmployeeAttendances { get; set; } = new();
 
+
+
+
+
     //public string Country { get; set; } = null!;
 }

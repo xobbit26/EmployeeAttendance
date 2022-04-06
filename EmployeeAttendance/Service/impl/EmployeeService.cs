@@ -8,5 +8,15 @@ public class EmployeeService : IEmployeeService
 
 
     public IEnumerable<EmployeeDto> GetAllEmployees() => _employees;
-    public void Create(EmployeeDto employee) => _employees.Add(employee);
+    public void Create(EmployeeDto employee)
+    {
+        if(employee != null)
+        {
+            if(employee.Name != null)
+            {
+                _employees.Add(employee);
+            }
+        }
+        
+    }
 }
