@@ -7,16 +7,21 @@ public class EmployeeService : IEmployeeService
     private List<EmployeeDto> _employees = new List<EmployeeDto>();
 
 
-    public IEnumerable<EmployeeDto> GetAllEmployees() => _employees;
-    public void Create(EmployeeDto employee)
+
+    async Task<IEnumerable<EmployeeDto>> IEmployeeService.GetAllEmployeesAsync() 
     {
-        if(employee != null)
+        return await Task.FromResult(_employees);
+    }
+
+
+    async Task IEmployeeService.CreateAsync(EmployeeDto employee)
+    {
+        if (employee != null)
         {
-            if(employee.Name != null)
+            if (employee.Name != null)
             {
                 _employees.Add(employee);
             }
         }
-        
     }
 }

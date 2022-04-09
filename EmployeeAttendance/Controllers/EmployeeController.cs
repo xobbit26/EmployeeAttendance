@@ -3,32 +3,27 @@ using EmployeeAttendance.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EmployeeAttendance.Controllers
+namespace EmployeeAttendance.Controllers;
+
+
+[Route("api/[controller]")]
+[ApiController]
+public class EmployeeController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EmployeeController : ControllerBase
+    private readonly IEmployeeService _employeeService;
+
+    public EmployeeController(IEmployeeService employeeService)
     {
-        private readonly IEmployeeService _employeeService;
-
-        public EmployeeController(IEmployeeService employeeService)
-        {
-            _employeeService = employeeService;
-        }
-
-        [HttpGet("all-employees")]
-        public IEnumerable<EmployeeDto> GetAllEmployees()
-        {
-            return _employeeService.GetAllEmployees();
-        }
-
-
-        [HttpPost]
-        public void Create(EmployeeDto employee)
-        {
-            _employeeService.Create(employee);
-        }
-
+        _employeeService = employeeService;
     }
+
+    [HttpGet("all-employees")]
+    public async Task<IEnumerable<EmployeeDto>> GetAllEmployees()
+        => await _employeeService.GetAllEmployeesAsync();
+
+
+    [HttpPost]
+    public async Task Create(EmployeeDto employee)
+        => await _employeeService.CreateAsync(employee);
 
 }

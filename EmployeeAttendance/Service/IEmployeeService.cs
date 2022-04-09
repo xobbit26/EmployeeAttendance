@@ -4,7 +4,7 @@ namespace EmployeeAttendance.Service;
 
 public interface IEmployeeService
 {
-    IEnumerable<EmployeeDto> GetAllEmployees();
+    Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync();
 
-    void Create(EmployeeDto employee);
+    Task CreateAsync(EmployeeDto employee);
 }
