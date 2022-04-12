@@ -1,6 +1,4 @@
-﻿using EmployeeAttendance.Repository;
-
-namespace EmployeeAttendance.Data.Repository.RepoConfig;
+﻿namespace EmployeeAttendance.Data.Repository.RepoConfig;
 
 
 public interface IRepositoryWrapper
