@@ -1,6 +1,6 @@
-﻿using EmployeeAttendance.Data;
+﻿using EmployeeAttendance.Repository;
 
-namespace EmployeeAttendance.Repository.RepoConfig;
+namespace EmployeeAttendance.Data.Repository.RepoConfig;
 
 
 public class RepositoryWrapper : IRepositoryWrapper

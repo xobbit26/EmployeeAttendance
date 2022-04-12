@@ -1,13 +1,12 @@
 ﻿using EmployeeAttendance.Data.Entities;
+using EmployeeAttendance.Data.Repository.RepoConfig;
 using EmployeeAttendance.Dto;
-using EmployeeAttendance.Repository;
-using EmployeeAttendance.Repository.RepoConfig;
 
 namespace EmployeeAttendance.Service.Impl;
 
 public class EmployeeService : IEmployeeService
 {
-    readonly IRepositoryWrapper _repositoryWrapper;
+    private readonly IRepositoryWrapper _repositoryWrapper;
 
     public EmployeeService(IRepositoryWrapper repositoryWrapper)
     {
@@ -18,7 +17,7 @@ public class EmployeeService : IEmployeeService
     public async Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync()
     {
         var employees = await _repositoryWrapper.Employee.GetAllEmployeesAsync();
-        return employees.Select(x => MapEmployeeToDto(x));
+        return employees.Select(MapEmployeeToDto);
 
         static EmployeeDto MapEmployeeToDto(Employee employee) => new()
         {

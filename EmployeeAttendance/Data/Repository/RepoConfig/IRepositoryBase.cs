@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace EmployeeAttendance.Repository.RepoConfig;
+namespace EmployeeAttendance.Data.Repository.RepoConfig;
 
 
 public interface IRepositoryBase<T>

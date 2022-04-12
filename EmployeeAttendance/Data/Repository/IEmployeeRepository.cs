@@ -1,7 +1,7 @@
 ﻿using EmployeeAttendance.Data.Entities;
-using EmployeeAttendance.Repository.RepoConfig;
+using EmployeeAttendance.Data.Repository.RepoConfig;
 
-namespace EmployeeAttendance.Repository;
+namespace EmployeeAttendance.Data.Repository;
 
 public interface IEmployeeRepository : IRepositoryBase<Employee>
 {

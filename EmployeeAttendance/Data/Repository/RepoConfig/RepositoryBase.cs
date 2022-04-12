@@ -1,8 +1,7 @@
-﻿using EmployeeAttendance.Data;
+﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 
-namespace EmployeeAttendance.Repository.RepoConfig;
+namespace EmployeeAttendance.Data.Repository.RepoConfig;
 
 
 public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class

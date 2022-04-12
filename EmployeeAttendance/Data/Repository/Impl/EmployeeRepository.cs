@@ -1,6 +1,7 @@
 ﻿using EmployeeAttendance.Data;
 using EmployeeAttendance.Data.Entities;
-using EmployeeAttendance.Repository.RepoConfig;
+using EmployeeAttendance.Data.Repository;
+using EmployeeAttendance.Data.Repository.RepoConfig;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeAttendance.Repository.Impl;
