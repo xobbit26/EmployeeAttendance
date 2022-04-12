@@ -6,5 +6,5 @@ public interface IEmployeeService
 {
     Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync();
 
-    Task CreateAsync(EmployeeDto employee);
+    Task Create(EmployeeDto employee);
 }

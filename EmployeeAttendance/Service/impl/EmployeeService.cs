@@ -1,27 +1,54 @@
-﻿using EmployeeAttendance.Dto;
+﻿using EmployeeAttendance.Data.Entities;
+using EmployeeAttendance.Dto;
+using EmployeeAttendance.Repository;
+using EmployeeAttendance.Repository.RepoConfig;
 
 namespace EmployeeAttendance.Service.Impl;
 
 public class EmployeeService : IEmployeeService
 {
-    private List<EmployeeDto> _employees = new List<EmployeeDto>();
+    readonly IRepositoryWrapper _repositoryWrapper;
 
-
-
-    async Task<IEnumerable<EmployeeDto>> IEmployeeService.GetAllEmployeesAsync() 
+    public EmployeeService(IRepositoryWrapper repositoryWrapper)
     {
-        return await Task.FromResult(_employees);
+        _repositoryWrapper = repositoryWrapper;
     }
 
 
-    async Task IEmployeeService.CreateAsync(EmployeeDto employee)
+    public async Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync()
     {
-        if (employee != null)
+        var employees = await _repositoryWrapper.Employee.GetAllEmployeesAsync();
+        return employees.Select(x => MapEmployeeToDto(x));
+
+        static EmployeeDto MapEmployeeToDto(Employee employee) => new()
         {
-            if (employee.Name != null)
-            {
-                _employees.Add(employee);
-            }
-        }
+            Id = employee.Id,
+            Name = employee.Name,
+            Surname = employee.Surname,
+            Birthday = employee.Birthday.ToString(),
+            HiringDate = employee.HiringDate.ToString(),
+            Position = employee.Position,
+            Department = employee.Department,
+            IsActive = employee.IsActive
+        };
+    }
+
+
+    public async Task Create(EmployeeDto employee)
+    {
+        var employeeEntity = new Employee()
+        {
+            Id = employee.Id,
+            Name = employee.Name,
+            Surname = employee.Surname,
+            Birthday = DateOnly.ParseExact(employee.Birthday, "dd.MM.yyyy"),
+            HiringDate = DateOnly.ParseExact(employee.HiringDate, "dd.MM.yyyy"),
+            Position = employee.Position,
+            Department = employee.Department,
+            IsActive = employee.IsActive
+        };
+        _repositoryWrapper.Employee.Create(employeeEntity);
+
+        await _repositoryWrapper.SaveAsync();
     }
 }

@@ -1,9 +1,10 @@
 using EmployeeAttendance.Data;
+using EmployeeAttendance.Repository;
+using EmployeeAttendance.Repository.Impl;
+using EmployeeAttendance.Repository.RepoConfig;
 using EmployeeAttendance.Service;
 using EmployeeAttendance.Service.Impl;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ builder.Services.AddControllers();
 
 //DI
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+//builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 
 
 //db configuration

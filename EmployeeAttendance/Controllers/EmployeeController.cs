@@ -1,6 +1,5 @@
 ﻿using EmployeeAttendance.Dto;
 using EmployeeAttendance.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeAttendance.Controllers;
@@ -24,6 +23,6 @@ public class EmployeeController : ControllerBase
 
     [HttpPost]
     public async Task Create(EmployeeDto employee)
-        => await _employeeService.CreateAsync(employee);
+        => await _employeeService.Create(employee);
 
 }

@@ -2,11 +2,19 @@
 
 public class EmployeeDto
 {
-    public int Id { get; set; }
-    public string Name { get; set; } = null!;
-    public string Surname { get; set; } = null!;
-    public int Age { get; set; }
-    public DateTime HiringDate { get; set; }
-    public string Position { get; set; } = null!;
-    public bool IsActive { get; set; }
+    public long Id { get; init; }
+
+    public string Name { get; init; } = null!;
+
+    public string Surname { get; init; } = null!;
+
+    public string Birthday { get; init; } = null!;
+
+    public string HiringDate { get; init; } = null!;
+
+    public string Position { get; init; } = null!;
+
+    public string Department { get; init; } = null!;
+
+    public bool IsActive { get; init; }
 }
