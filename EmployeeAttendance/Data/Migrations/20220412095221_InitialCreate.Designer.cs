@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EmployeeAttendance.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220412093731_AddRequiredPropertiesToEmployee")]
-    partial class AddRequiredPropertiesToEmployee
+    [Migration("20220412095221_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
