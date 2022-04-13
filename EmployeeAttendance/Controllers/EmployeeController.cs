@@ -16,6 +16,7 @@ public class EmployeeController : ControllerBase
         _employeeService = employeeService;
     }
 
+
     [HttpGet("all-employees")]
     public async Task<IEnumerable<EmployeeDto>> GetAllEmployees()
         => await _employeeService.GetAllEmployeesAsync();

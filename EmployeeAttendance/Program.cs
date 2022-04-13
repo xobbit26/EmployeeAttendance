@@ -1,3 +1,4 @@
+using EmployeeAttendance;
 using EmployeeAttendance.Data;
 using EmployeeAttendance.Data.Repository;
 using EmployeeAttendance.Data.Repository.Impl;
@@ -18,13 +19,15 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 //builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 
+//autoMapper config
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+
 
 //db configuration
-string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options => options
     .UseNpgsql(connection)
     .UseSnakeCaseNamingConvention());
-
 
 var app = builder.Build();
 app.UseHttpsRedirection();
