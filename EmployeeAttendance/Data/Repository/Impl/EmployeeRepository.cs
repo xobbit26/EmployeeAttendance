@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeAttendance.Data.Repository.Impl;
 
-
 public class EmployeeRepository : RepositoryBase<Employee>, IEmployeeRepository
 {
-    public EmployeeRepository(DataContext repositoryContext) : base(repositoryContext) { }
+    public EmployeeRepository(DataContext repositoryContext) : base(repositoryContext)
+    {
+    }
 
 
     public async Task<IEnumerable<Employee>> FindAllAsync()

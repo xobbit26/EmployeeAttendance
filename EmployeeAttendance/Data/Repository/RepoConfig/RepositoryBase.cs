@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeAttendance.Data.Repository.RepoConfig;
 
-
 public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
 {
     protected readonly DataContext _dataContext;

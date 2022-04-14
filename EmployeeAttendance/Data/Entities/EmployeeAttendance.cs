@@ -2,7 +2,6 @@
 
 namespace EmployeeAttendance.Data.Entities;
 
-
 [Table("employee_attendance")]
 public class EmployeeAttendance
 {
@@ -11,4 +10,3 @@ public class EmployeeAttendance
     public DateTime LeaveDateTime { get; set; }
     public Employee Employee { get; set; } = null!;
 }
-

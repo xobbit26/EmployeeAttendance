@@ -2,7 +2,6 @@
 
 namespace EmployeeAttendance.Data.Repository.RepoConfig;
 
-
 public interface IRepositoryBase<T>
 {
     IQueryable<T> FindAll();

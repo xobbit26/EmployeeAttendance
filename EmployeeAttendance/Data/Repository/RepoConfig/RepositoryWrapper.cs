@@ -1,6 +1,5 @@
 ﻿namespace EmployeeAttendance.Data.Repository.RepoConfig;
 
-
 public class RepositoryWrapper : IRepositoryWrapper
 {
     private readonly DataContext _dataContext;
