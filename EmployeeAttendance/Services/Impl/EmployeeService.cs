@@ -13,7 +13,8 @@ public class EmployeeService : IEmployeeService
     private readonly IMapper _mapper;
     private readonly IRepositoryWrapper _repositoryWrapper;
 
-    public EmployeeService(IMapper mapper, IRepositoryWrapper repositoryWrapper)
+    public EmployeeService(IMapper mapper,
+        IRepositoryWrapper repositoryWrapper)
     {
         _mapper = mapper;
         _repositoryWrapper = repositoryWrapper;
@@ -26,7 +27,6 @@ public class EmployeeService : IEmployeeService
         return employees.Select(e => _mapper.Map<EmployeeDto>(e));
     }
 
-
     public async Task<EmployeeDto> FindByIdAsync(long id)
     {
         var employee = await _repositoryWrapper.Employee.FindByIdAsync(id);
@@ -35,7 +35,6 @@ public class EmployeeService : IEmployeeService
 
         return _mapper.Map<EmployeeDto>(employee);
     }
-
 
     public async Task CreateAsync(EmployeeDto employee)
     {

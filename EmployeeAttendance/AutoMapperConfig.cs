@@ -21,5 +21,8 @@ public class AutoMapperConfig : Profile
                 opt => opt.MapFrom(src => DateOnly.ParseExact(src.Birthday, Constants.DATE_FORMAT)))
             .ForMember(dest => dest.HiringDate,
                 opt => opt.MapFrom(src => DateOnly.ParseExact(src.HiringDate, Constants.DATE_FORMAT)));
+
+
+        CreateMap<EmployeeAttendanceDto, Data.Entities.EmployeeAttendance>().ReverseMap();
     }
 }

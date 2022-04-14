@@ -15,7 +15,9 @@ builder.Services.AddControllers();
 
 //DI
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
+builder.Services.AddTransient<IEmployeeAttendanceService, EmployeeAttendanceService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeAttendanceRepository, EmployeeAttendanceRepository>();
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 //builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
