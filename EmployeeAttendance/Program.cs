@@ -14,10 +14,10 @@ builder.Services.AddControllers();
 
 
 //DI
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-//builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+//builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
 //autoMapper config
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));

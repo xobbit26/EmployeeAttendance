@@ -1,4 +1,4 @@
-﻿using EmployeeAttendance.Dto;
+﻿using EmployeeAttendance.DTO;
 
 namespace EmployeeAttendance.Service;
 

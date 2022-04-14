@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using EmployeeAttendance.Data.Entities;
 using EmployeeAttendance.Data.Repository.RepoConfig;
-using EmployeeAttendance.Dto;
+using EmployeeAttendance.DTO;
 
 namespace EmployeeAttendance.Service.Impl;
 
