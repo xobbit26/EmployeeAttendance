@@ -17,13 +17,28 @@ public class EmployeeController : ControllerBase
     }
 
 
-    [HttpGet("all-employees")]
+    [HttpGet]
     public async Task<IEnumerable<EmployeeDto>> GetAllEmployees()
-        => await _employeeService.GetAllEmployeesAsync();
+        => await _employeeService.FindAllAsync();
+
+
+    [HttpGet("{id}")]
+    public async Task<EmployeeDto> GetById(long id)
+        => await _employeeService.FindByIdAsync(id);
 
 
     [HttpPost]
     public async Task Create(EmployeeDto employee)
-        => await _employeeService.Create(employee);
+        => await _employeeService.CreateAsync(employee);
+
+
+    [HttpPut]
+    public async Task Update(EmployeeDto employee)
+        => await _employeeService.UpdateAsync(employee);
+
+
+    [HttpDelete("{id}")]
+    public async Task Delete(long id)
+        => await _employeeService.DeleteAsync(id);
 
 }

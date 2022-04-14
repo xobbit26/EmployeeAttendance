@@ -4,7 +4,13 @@ namespace EmployeeAttendance.Service;
 
 public interface IEmployeeService
 {
-    Task<IEnumerable<EmployeeDto>> GetAllEmployeesAsync();
+    Task<IEnumerable<EmployeeDto>> FindAllAsync();
 
-    Task Create(EmployeeDto employee);
+    Task<EmployeeDto> FindByIdAsync(long id);
+
+    Task CreateAsync(EmployeeDto employee);
+
+    Task UpdateAsync(EmployeeDto employee);
+
+    Task DeleteAsync(long id);
 }

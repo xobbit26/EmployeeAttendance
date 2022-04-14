@@ -5,5 +5,7 @@ namespace EmployeeAttendance.Data.Repository;
 
 public interface IEmployeeRepository : IRepositoryBase<Employee>
 {
-    Task<IEnumerable<Employee>> GetAllEmployeesAsync();
+    Task<IEnumerable<Employee>> FindAllAsync();
+
+    Task<Employee> FindByIdAsync(long id);
 }
