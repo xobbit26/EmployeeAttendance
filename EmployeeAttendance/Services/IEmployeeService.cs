@@ -1,6 +1,6 @@
-﻿using EmployeeAttendance.DTO;
+﻿using EmployeeAttendance.DTOs;
 
-namespace EmployeeAttendance.Service;
+namespace EmployeeAttendance.Services;
 
 public interface IEmployeeService
 {

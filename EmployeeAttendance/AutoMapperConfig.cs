@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using EmployeeAttendance.Data.Entities;
-using EmployeeAttendance.DTO;
-using EmployeeAttendance.Util;
+using EmployeeAttendance.DTOs;
+using EmployeeAttendance.Utils;
 
 namespace EmployeeAttendance;
 

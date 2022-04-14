@@ -7,5 +7,5 @@ public interface IEmployeeRepository : IRepositoryBase<Employee>
 {
     Task<IEnumerable<Employee>> FindAllAsync();
 
-    Task<Employee> FindByIdAsync(long id);
+    Task<Employee?> FindByIdAsync(long id);
 }

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using EmployeeAttendance.Data.Entities;
 using EmployeeAttendance.Data.Repository.RepoConfig;
-using EmployeeAttendance.DTO;
+using EmployeeAttendance.DTOs;
 using EmployeeAttendance.Exceptions;
 
-namespace EmployeeAttendance.Service.Impl;
+namespace EmployeeAttendance.Services.Impl;
 
 public class EmployeeService : IEmployeeService
 {

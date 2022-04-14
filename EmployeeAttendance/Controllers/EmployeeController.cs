@@ -1,5 +1,5 @@
-﻿using EmployeeAttendance.DTO;
-using EmployeeAttendance.Service;
+﻿using EmployeeAttendance.DTOs;
+using EmployeeAttendance.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeAttendance.Controllers;

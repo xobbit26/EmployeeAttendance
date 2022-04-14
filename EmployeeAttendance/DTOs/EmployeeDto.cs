@@ -1,4 +1,4 @@
-﻿namespace EmployeeAttendance.DTO;
+﻿namespace EmployeeAttendance.DTOs;
 
 public record EmployeeDto(
     long Id,

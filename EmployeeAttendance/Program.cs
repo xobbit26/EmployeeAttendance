@@ -3,8 +3,8 @@ using EmployeeAttendance.Data;
 using EmployeeAttendance.Data.Repository;
 using EmployeeAttendance.Data.Repository.Impl;
 using EmployeeAttendance.Data.Repository.RepoConfig;
-using EmployeeAttendance.Service;
-using EmployeeAttendance.Service.Impl;
+using EmployeeAttendance.Services;
+using EmployeeAttendance.Services.Impl;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

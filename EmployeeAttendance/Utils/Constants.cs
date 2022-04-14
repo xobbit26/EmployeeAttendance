@@ -1,4 +1,4 @@
-﻿namespace EmployeeAttendance.Util;
+﻿namespace EmployeeAttendance.Utils;
 
 public static class Constants
 {

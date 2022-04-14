@@ -18,7 +18,7 @@ public class EmployeeRepository : RepositoryBase<Employee>, IEmployeeRepository
             .ToListAsync();
     }
 
-    public async Task<Employee> FindByIdAsync(long id)
+    public async Task<Employee?> FindByIdAsync(long id)
     {
         return await FindAll()
             .FirstOrDefaultAsync(x => x.Id == id);
