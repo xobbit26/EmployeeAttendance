@@ -3,6 +3,7 @@ using EmployeeAttendance.Data.Entities;
 using EmployeeAttendance.Data.Repository;
 using EmployeeAttendance.Data.Repository.RepoConfig;
 using EmployeeAttendance.DTOs;
+using EmployeeAttendance.Exceptions;
 using EmployeeAttendance.Services;
 using EmployeeAttendance.Services.Impl;
 using EmployeeAttendance.Utils;
@@ -14,33 +15,28 @@ using System.Threading.Tasks;
 
 namespace EmployeeAttendance.Tests;
 
-public class EmployeeServiceTest
+internal sealed class EmployeeServiceTest : BaseTest
 {
-    private IMapper mapper;
-    private IEmployeeService employeeService;
-    private Mock<IEmployeeRepository> employeeRepositoryMock;
+    private IEmployeeService employeeService = null!;
+    private Mock<IEmployeeRepository> employeeRepositoryMock = null!;
+
 
     [SetUp]
     public void Setup()
     {
-        var mappingConfig = new MapperConfiguration(mc => mc.AddProfile(new AutoMapperProfile()));
-        mapper = mappingConfig.CreateMapper();
-
         employeeRepositoryMock = new Mock<IEmployeeRepository>();
-
-        employeeService = new EmployeeService(mapper, employeeRepositoryMock.Object);
+        employeeService = new EmployeeService(_mapper, employeeRepositoryMock.Object);
     }
 
 
     [Test]
     public void FindById_SuccessTest()
     {
-        //Arrange
-        //employeeRepositoryMock.Setup(x => x.FindByIdAsync(It.IsAny<long>()))
-        //    .ReturnsAsync(null as Employee);
         const long id = 1;
+
+        //Arrange
         Employee? employee = GetEmployees().Find(x => x.Id == id);
-        EmployeeDto expectedEmployeeDto = mapper.Map<EmployeeDto>(employee);
+        EmployeeDto expectedEmployeeDto = _mapper.Map<EmployeeDto>(employee);
 
         employeeRepositoryMock.Setup(x => x.FindByIdAsync(It.Is<long>(x => x == id)))
             .Returns(Task.FromResult(employee));
@@ -51,6 +47,15 @@ public class EmployeeServiceTest
         // Assert
         Assert.AreEqual(expectedEmployeeDto, actual);
         employeeRepositoryMock.Verify(x => x.FindByIdAsync(id), Times.Once());
+    }
+
+    [Test]
+    public void FindById_GetNullEmployee_FailTest()
+    {
+        employeeRepositoryMock.Setup(x => x.FindByIdAsync(It.IsAny<long>()))
+            .ReturnsAsync((Employee?)null);
+
+        Assert.ThrowsAsync<EmployeeNotFoundException>(async () => await employeeService.FindByIdAsync(1));
     }
 
 
