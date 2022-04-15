@@ -12,25 +12,17 @@ public class EmployeeService : IEmployeeService
 
     private readonly IMapper _mapper;
     private readonly IEmployeeRepository _employeeRepository;
-    private readonly ILogger<EmployeeService> _logger;
 
     public EmployeeService(IMapper mapper,
-        IEmployeeRepository employeeRepository,
-        ILogger<EmployeeService> logger)
+        IEmployeeRepository employeeRepository)
     {
         _mapper = mapper;
         _employeeRepository = employeeRepository;
-        _logger = logger;
     }
 
 
     public async Task<IEnumerable<EmployeeDto>> FindAllAsync()
     {
-        _logger.LogInformation("*************FindAllAsync method (info)");
-        _logger.LogWarning("*************FindAllAsync method (warning)");
-        _logger.LogError("*************FindAllAsync method (error)");
-        _logger.LogCritical("*************FindAllAsync method (critical)");
-        _logger.LogTrace("*************FindAllAsync method (trace)");
         var employees = await _employeeRepository.FindAllAsync();
         return employees.Select(e => _mapper.Map<EmployeeDto>(e));
     }

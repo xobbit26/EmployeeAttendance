@@ -19,7 +19,7 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeAttendanceRepository, EmployeeAttendanceRepository>();
 
 //autoMapper config
-builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 
 //db configuration

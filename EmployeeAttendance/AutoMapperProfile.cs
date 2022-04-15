@@ -5,9 +5,9 @@ using EmployeeAttendance.Utils;
 
 namespace EmployeeAttendance;
 
-public class AutoMapperConfig : Profile
+public class AutoMapperProfile : Profile
 {
-    public AutoMapperConfig()
+    public AutoMapperProfile()
     {
         CreateMap<Employee, EmployeeDto>()
             .ForMember(dest => dest.Birthday,
