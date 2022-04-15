@@ -1,3 +1,4 @@
+using EmployeeAttendance.Data.Repository;
 using EmployeeAttendance.Data.Repository.RepoConfig;
 using Moq;
 using NUnit.Framework;
@@ -15,8 +16,8 @@ public class EmployeeServiceTest
     [Test]
     public void FindById_SuccessTest()
     {
-        // Arrange
-        var mock = new Mock<IRepositoryWrapper>();
+        //Arrange
+        var mock = new Mock<IEmployeeRepository>();
         //mock.Setup(a => a.GetComputerList()).Returns(new List<Computer>());
         //HomeController controller = new HomeController(mock.Object);
 

@@ -2,7 +2,6 @@ using EmployeeAttendance;
 using EmployeeAttendance.Data;
 using EmployeeAttendance.Data.Repository;
 using EmployeeAttendance.Data.Repository.Impl;
-using EmployeeAttendance.Data.Repository.RepoConfig;
 using EmployeeAttendance.Services;
 using EmployeeAttendance.Services.Impl;
 using Microsoft.EntityFrameworkCore;
@@ -18,8 +17,6 @@ builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddTransient<IEmployeeAttendanceService, EmployeeAttendanceService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeAttendanceRepository, EmployeeAttendanceRepository>();
-builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
-//builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 
 //autoMapper config
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
@@ -30,6 +27,7 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options => options
     .UseNpgsql(connection)
     .UseSnakeCaseNamingConvention());
+
 
 var app = builder.Build();
 app.UseHttpsRedirection();

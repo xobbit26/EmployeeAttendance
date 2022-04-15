@@ -39,4 +39,9 @@ public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         _dataContext.Set<T>().Remove(entity);
     }
+
+    public async Task SaveAsync()
+    {
+        await _dataContext.SaveChangesAsync();
+    }
 }

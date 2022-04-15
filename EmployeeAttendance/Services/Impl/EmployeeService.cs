@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EmployeeAttendance.Data.Entities;
-using EmployeeAttendance.Data.Repository.RepoConfig;
+using EmployeeAttendance.Data.Repository;
 using EmployeeAttendance.DTOs;
 using EmployeeAttendance.Exceptions;
 
@@ -11,58 +11,75 @@ public class EmployeeService : IEmployeeService
     private const string EMPLOYEE_NOT_FOUND_MSG = "Emplooyee has not been found";
 
     private readonly IMapper _mapper;
-    private readonly IRepositoryWrapper _repositoryWrapper;
+    private readonly IEmployeeRepository _employeeRepository;
+    private readonly ILogger<EmployeeService> _logger;
 
     public EmployeeService(IMapper mapper,
-        IRepositoryWrapper repositoryWrapper)
+        IEmployeeRepository employeeRepository,
+        ILogger<EmployeeService> logger)
     {
         _mapper = mapper;
-        _repositoryWrapper = repositoryWrapper;
+        _employeeRepository = employeeRepository;
+        _logger = logger;
     }
 
 
     public async Task<IEnumerable<EmployeeDto>> FindAllAsync()
     {
-        var employees = await _repositoryWrapper.Employee.FindAllAsync();
+        _logger.LogInformation("*************FindAllAsync method (info)");
+        _logger.LogWarning("*************FindAllAsync method (warning)");
+        _logger.LogError("*************FindAllAsync method (error)");
+        _logger.LogCritical("*************FindAllAsync method (critical)");
+        _logger.LogTrace("*************FindAllAsync method (trace)");
+        var employees = await _employeeRepository.FindAllAsync();
         return employees.Select(e => _mapper.Map<EmployeeDto>(e));
     }
 
     public async Task<EmployeeDto> FindByIdAsync(long id)
     {
-        var employee = await _repositoryWrapper.Employee.FindByIdAsync(id);
+        var employee = await _employeeRepository.FindByIdAsync(id);
         if (employee == null)
             throw new EmployeeNotFoundException(EMPLOYEE_NOT_FOUND_MSG);
 
         return _mapper.Map<EmployeeDto>(employee);
     }
 
+    public async Task<Employee> FindEntityByIdAsync(long id)
+    {
+        var employee = await _employeeRepository.FindByIdAsync(id);
+        if (employee == null)
+            throw new EmployeeNotFoundException(EMPLOYEE_NOT_FOUND_MSG);
+
+        return employee;
+    }
+
     public async Task CreateAsync(EmployeeDto employee)
     {
         var employeeEntity = _mapper.Map<Employee>(employee);
-        _repositoryWrapper.Employee.Create(employeeEntity);
+        _employeeRepository.Create(employeeEntity);
 
-        await _repositoryWrapper.SaveAsync();
+        await _employeeRepository.SaveAsync();
     }
 
     public async Task UpdateAsync(EmployeeDto employeeDto)
     {
-        var employee = await _repositoryWrapper.Employee.FindByIdAsync(employeeDto.Id);
+        var employee = await _employeeRepository.FindByIdAsync(employeeDto.Id);
         if (employee == null)
             throw new EmployeeNotFoundException(EMPLOYEE_NOT_FOUND_MSG);
 
         _mapper.Map(employeeDto, employee);
 
-        _repositoryWrapper.Employee.Update(employee);
-        await _repositoryWrapper.SaveAsync();
+        _employeeRepository.Update(employee);
+        await _employeeRepository.SaveAsync();
     }
 
     public async Task DeleteAsync(long id)
     {
-        var employee = await _repositoryWrapper.Employee.FindByIdAsync(id);
+        var employee = await _employeeRepository.FindByIdAsync(id);
         if (employee == null)
             throw new EmployeeNotFoundException(EMPLOYEE_NOT_FOUND_MSG);
 
-        _repositoryWrapper.Employee.Delete(employee);
-        await _repositoryWrapper.SaveAsync();
+        _employeeRepository.Delete(employee);
+        await _employeeRepository.SaveAsync();
     }
 }
