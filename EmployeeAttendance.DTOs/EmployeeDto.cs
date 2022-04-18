@@ -1,7 +1,7 @@
 ﻿namespace EmployeeAttendance.DTOs;
 
-public record EmployeeDto(
-    long Id,
+public readonly record struct EmployeeDto(
+    int Id,
     string Name,
     string Surname,
     string Birthday,

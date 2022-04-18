@@ -24,7 +24,7 @@ public class EmployeeService : IEmployeeService
     public async Task<IEnumerable<EmployeeDto>> FindAllAsync()
     {
         var employees = await _employeeRepository.FindAllAsync();
-        return employees.Select(e => _mapper.Map<EmployeeDto>(e));
+        return _mapper.Map<List<EmployeeDto>>(employees);
     }
 
     public async Task<EmployeeDto> FindByIdAsync(long id)

@@ -1,6 +1,6 @@
 ﻿namespace EmployeeAttendance.DTOs;
 
-public record EmployeeAttendanceDto(
+public readonly record struct EmployeeAttendanceDto(
     DateTime EnterDateTime,
     DateTime LeaveDateTime
 );

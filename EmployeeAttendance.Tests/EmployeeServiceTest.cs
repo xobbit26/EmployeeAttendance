@@ -1,7 +1,5 @@
-using AutoMapper;
 using EmployeeAttendance.Data.Entities;
 using EmployeeAttendance.Data.Repository;
-using EmployeeAttendance.Data.Repository.RepoConfig;
 using EmployeeAttendance.DTOs;
 using EmployeeAttendance.Exceptions;
 using EmployeeAttendance.Services;
@@ -59,7 +57,7 @@ internal sealed class EmployeeServiceTest : BaseTest
     }
 
 
-    private List<Employee> GetEmployees()
+    private static List<Employee> GetEmployees()
     {
         return new List<Employee>()
         {

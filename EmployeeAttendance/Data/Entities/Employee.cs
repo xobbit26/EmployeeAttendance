@@ -2,10 +2,16 @@
 
 namespace EmployeeAttendance.Data.Entities;
 
+
 [Table("employee")]
 public class Employee
 {
-    public Employee(long id,
+    public Employee()
+    {
+
+    }
+
+    public Employee(int id,
         string name,
         string surname,
         DateOnly birthday,
@@ -26,7 +32,7 @@ public class Employee
         EmployeeAttendances = employeeAttendances;
     }
 
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 

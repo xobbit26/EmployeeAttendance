@@ -11,7 +11,7 @@ public class EmployeeAttendanceService : IEmployeeAttendanceService
     private readonly IEmployeeService _employeeService;
 
     public EmployeeAttendanceService(IMapper mapper,
-        IEmployeeAttendanceRepository employeeAttendanceRepository, 
+        IEmployeeAttendanceRepository employeeAttendanceRepository,
         IEmployeeService employeeService)
     {
         _mapper = mapper;
@@ -25,7 +25,7 @@ public class EmployeeAttendanceService : IEmployeeAttendanceService
         _ = await _employeeService.FindByIdAsync(employeeId);
         var employeeAttendances = await _employeeAttendanceRepository.FindByEmployeeIdAsync(employeeId);
 
-        return employeeAttendances.Select(ea => _mapper.Map<EmployeeAttendanceDto>(ea));
+        return _mapper.Map<List<EmployeeAttendanceDto>>(employeeAttendances);
     }
 
 
